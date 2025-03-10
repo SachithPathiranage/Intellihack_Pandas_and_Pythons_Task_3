@@ -1,0 +1,344 @@
+Question,Answer
+What are the main challenges faced by DeepSeek-R1-Zero?,"It encounters challenges such as poor readability, and language mixing."
+How does DeepSeek-R1 improve upon DeepSeek-R1-Zero?,DeepSeek-R1 incorporates multi-stage training and cold-start data before RL to address issues and enhance reasoning performance.
+What is the performance comparison between DeepSeek-R1 and OpenAI-o1-1217?,DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks.
+What types of models are distilled from DeepSeek-R1?,"Six dense models (1.5B, 7B, 8B, 14B, 32B, 70B) are distilled from DeepSeek-R1 based on Qwen and Llama."
+What is the purpose of open-sourcing the DeepSeek-R1 models?,To support the research community.
+What has been shown to enhance accuracy on reasoning tasks in LLMs?,"Post-training has been shown to enhance accuracy on reasoning tasks, align with social values, and adapt to user preferences, all while requiring relatively minimal computational resources against pre-training."
+What was the first model to introduce inference-time scaling for reasoning tasks?,OpenAI's o1 series models were the first to introduce inference-time scaling by increasing the length of the Chain-of-Thought reasoning process.
+What improvements have been achieved by increasing the Chain-of-Thought reasoning process?,"This approach has achieved significant improvements in various reasoning tasks, such as mathematics, coding, and scientific reasoning."
+What is the challenge that remains open for the research community in terms of LLM reasoning?,The challenge of effective test-time scaling remains an open question for the research community.
+What methods have been explored to improve reasoning performance in LLMs?,"Several prior works have explored various approaches, including process-based reward models, reinforcement learning, and search algorithms such as Monte Carlo Tree Search and Beam Search."
+What is the goal of the paper in relation to language model reasoning?,"The goal is to explore the potential of LLMs to develop reasoning capabilities without any supervised data, focusing on their self-evolution through a pure RL process."
+Which base model is used in this study?,We use DeepSeek-V3-Base as the base model.
+What RL framework is employed to improve the model's reasoning performance?,We employ GRPO as the RL framework to improve model performance in reasoning.
+How does DeepSeek-R1-Zero perform on reasoning benchmarks after training?,"After thousands of RL steps, DeepSeek-R1-Zero exhibits super performance on reasoning benchmarks. For instance, the pass@1 score on AIME 2024 increases from 15.6% to 71.0%, and with majority voting, the score further improves to 86.7%, matching the performance of OpenAI-o1-0912."
+What behavior emerged naturally during training in DeepSeek-R1-Zero?,"During training, DeepSeek-R1-Zero naturally emerged with numerous powerful and interesting reasoning behaviors."
+What issues does DeepSeek-R1-Zero encounter?,"DeepSeek-R1-Zero encounters challenges such as poor readability, and language mixing."
+How does DeepSeek-R1 address the challenges of DeepSeek-R1-Zero?,"To address these issues and further enhance reasoning performance, we introduce DeepSeek-R1, which incorporates a small amount of cold-start data and a multi-stage training pipeline."
+What is the first step in the training pipeline for DeepSeek-R1?,We begin by collecting thousands of cold-start data to fine-tune the DeepSeek-V3-Base model.
+What does the multi-stage training process for DeepSeek-R1 include after reasoning-oriented RL?,"After reasoning-oriented RL, we create new SFT data through rejection sampling on the RL checkpoint, combined with supervised data from DeepSeek-V3 in domains such as writing, factual QA, and self-cognition, and then retrain the DeepSeek-V3-Base model."
+How does DeepSeek-R1's performance compare to OpenAI-o1-1217?,"After these steps, we obtained a checkpoint referred to as DeepSeek-R1, which achieves performance on par with OpenAI-o1-1217."
+What is the outcome of distilling DeepSeek-R1 into smaller dense models?,"Direct distillation from DeepSeek-R1 outperforms applying RL on it, demonstrating that the reasoning patterns discovered by larger base models are crucial for improving reasoning capabilities."
+Which base model is used for distillation in this study?,"Using Qwen2.5-32B as the base model, direct distillation from DeepSeek-R1 outperforms applying RL on it."
+What models have been open-sourced to support the research community?,We open-source the distilled Qwen and Llama series.
+How does the distilled 14B model compare to the QwQ-32B-Preview model?,"Notably, our distilled 14B model outperforms state-of-the-art open-source QwQ-32B-Preview by a large margin."
+What new record was set by the distilled 32B and 70B models?,The distilled 32B and 70B models set a new record on the reasoning benchmarks among dense models.
+What distinguishes DeepSeek-R1-Zero from other models in terms of training methodology?,We directly apply RL to the base model without relying on supervised fine-tuning (SFT) as a preliminary step.
+What capabilities does DeepSeek-R1-Zero demonstrate?,"DeepSeek-R1-Zero demonstrates capabilities such as self-verification, reflection, and generating long CoTs, marking a significant milestone for the research community."
+Why is DeepSeek-R1-Zero considered a breakthrough?,"Notably, it is the first open research to validate that reasoning capabilities of LLMs can be incentivized purely through RL, without the need for SFT."
+What is the goal of DeepSeek-R1’s training pipeline?,"The pipeline incorporates two RL stages aimed at discovering improved reasoning patterns and aligning with human preferences, as well as two SFT stages that serve as the seed for the model's reasoning and non-reasoning capabilities."
+How can the DeepSeek-R1 pipeline benefit the industry?,We believe the pipeline will benefit the industry by creating better models.
+What does the study reveal about distilling reasoning patterns from large to small models?,"We demonstrate that the reasoning patterns of larger models can be distilled into smaller models, resulting in better performance compared to the reasoning patterns discovered through RL on small models."
+How does DeepSeek-R1 contribute to future research in model distillation?,"The open source DeepSeek-R1, as well as its API, will benefit the research community to distill better smaller models in the future."
+What benchmarks validate the performance of the distilled smaller models?,"DeepSeek-R1-Distill-Qwen-7B achieves 55.5% on AIME 2024, surpassing QwQ-32B-Preview. Additionally, DeepSeek-R1-Distill-Qwen-32B scores 72.6% on AIME 2024, 94.3% on MATH-500, and 57.2% on LiveCodeBench."
+Which open-source distilled models are available to the community?,"We open-source distilled 1.5B, 7B, 8B, 14B, 32B, and 70B checkpoints based on Qwen2.5 and Llama3 series to the community."
+How does DeepSeek-R1 perform on AIME 2024?,"DeepSeek-R1 achieves a score of 79.8% Pass@1 on AIME 2024, slightly surpassing OpenAI-o1-1217."
+What are DeepSeek-R1’s results on MATH-500?,"On MATH-500, it attains an impressive score of 97.3%, performing on par with OpenAI-o1-1217 and significantly outperforming other models."
+How does DeepSeek-R1 perform in coding competitions?,"DeepSeek-R1 demonstrates expert level in code competition tasks, as it achieves 2,029 Elo rating on Codeforces, outperforming 96.3% human participants in the competition."
+What impact does DeepSeek-R1 have on engineering-related tasks?,"For engineering-related tasks, DeepSeek-R1 performs slightly better than DeepSeek-V3, which could help developers in real-world tasks."
+What is DeepSeek-R1’s performance on MMLU benchmarks?,"DeepSeek-R1 achieves outstanding results, significantly outperforming DeepSeek-V3 with scores of 90.8% on MMLU, 84.0% on MMLU-Pro, and 71.5% on GPQA Diamond."
+How does DeepSeek-R1 compare to OpenAI-o1-1217 in knowledge-based tasks?,"While its performance is slightly below that of OpenAI-o1-1217 on these benchmarks, DeepSeek-R1 surpasses other closed-source models, demonstrating its competitive edge in educational tasks."
+Which benchmark highlights DeepSeek-R1’s ability to handle fact-based queries?,"On the factual benchmark SimpleQA, DeepSeek-R1 outperforms DeepSeek-V3, demonstrating its capability in handling fact-based queries."
+How does DeepSeek-R1 perform on creative and general tasks?,"DeepSeek-R1 also excels in a wide range of tasks, including creative writing, general question answering, editing, summarization, and more."
+What are DeepSeek-R1’s evaluation results on AlpacaEval 2.0 and ArenaHard?,"It achieves an impressive length-controlled win-rate of 87.6% on AlpacaEval 2.0 and a win-rate of 92.3% on ArenaHard, showcasing its strong ability to intelligently handle non-exam-oriented queries."
+How does DeepSeek-R1 perform in long-context understanding?,"DeepSeek-R1 demonstrates outstanding performance on tasks requiring long-context understanding, substantially outperforming DeepSeek-V3 on long-context benchmarks."
+What competitive advantage does DeepSeek-R1 offer?,"DeepSeek-R1 surpasses other closed-source models, demonstrating its competitive edge in educational tasks."
+What has previous work relied on to enhance model performance?,Previous work has heavily relied on large amounts of supervised data to enhance model performance.
+How does this study improve reasoning capabilities compared to previous methods?,"In this study, we demonstrate that reasoning capabilities can be significantly improved through large-scale reinforcement learning (RL), even without using supervised fine-tuning (SFT) as a cold start."
+Can performance be further improved beyond pure RL training?,Performance can be further enhanced with the inclusion of a small amount of cold-start data.
+What are the three key contributions presented in this study?,"(1) DeepSeek-R1-Zero, which applies RL directly to the base model without any SFT data, (2) DeepSeek-R1, which applies RL starting from a checkpoint fine-tuned with thousands of long Chain-of-Thought (CoT) examples, and (3) distilling the reasoning capability from DeepSeek-R1 to small dense models."
+Why is DeepSeek-R1-Zero significant in the field of reinforcement learning?,"Reinforcement learning has demonstrated significant effectiveness in reasoning tasks, as evidenced by our previous works."
+What challenge do previous reinforcement learning works face?,"These works heavily depended on supervised data, which are time-intensive to gather."
+What is the primary focus of DeepSeek-R1-Zero?,"In this section, we explore the potential of LLMs to develop reasoning capabilities **without any supervised data**, focusing on their self-evolution through a pure reinforcement learning process."
+What methodology does DeepSeek-R1-Zero employ?,"We start with a brief overview of our RL algorithm, followed by the presentation of some exciting results."
+How does DeepSeek-R1-Zero contribute to the research community?,We hope this provides the community with valuable insights.
+What are the benefits of applying RL without supervised fine-tuning?,"It allows models to develop reasoning capabilities **without any supervised data**, enabling self-evolution through a pure reinforcement learning process."
+What optimization method is used to save training costs in RL?,"We adopt Group Relative Policy Optimization (GRPO), which foregoes the critic model that is typically the same size as the policy model and estimates the baseline from group scores instead."
+How does GRPO estimate the baseline for optimization?,"GRPO samples a group of outputs {1, 2, · · · , } from the old policy and then optimizes the policy model by maximizing a specific objective."
+What key element does GRPO eliminate compared to traditional RL methods?,GRPO foregoes the critic model that is typically the same size as the policy model.
+How does GRPO compute the advantage for optimization?,"The advantage is computed using a group of rewards {1,2, . . . ,} corresponding to the outputs within each group."
+What is the formula for the advantage computation in GRPO?,"\( A\_{\rm i} = \frac{r\_{\rm i} - \text{mean}(\{r\_1, r\_2, \dots, r\_{\rm i}\})}{\text{std}(\{r\_1, r\_2, \dots, r\_G\})}. \)"
+What is the KL divergence penalty term used in GRPO?,\( \mathbb{D}\_{KL}\left(\pi\_{\theta}||\pi\_{ref}\right) = \frac{\pi\_{ref}(o\_{i}|q)}{\pi\_{\theta}(o\_{i}|q)} - \log \frac{\pi\_{ref}(o\_{i}|q)}{\pi\_{\theta}(o\_{i}|q)} - 1. \)
+Why is the KL divergence penalty included in the optimization objective?,It helps regulate the divergence between the current policy and the reference policy.
+What are the key hyperparameters used in GRPO?,The hyperparameters are represented as and in the equations.
+What is the main goal of GRPO?,To optimize the policy model by maximizing the defined objective while estimating the baseline from group scores.
+How does GRPO differ from traditional RL approaches?,"Unlike traditional RL methods, GRPO does not require a critic model and instead estimates the baseline from group scores, reducing training costs."
+What determines the optimization direction in reinforcement learning?,"The reward is the source of the training signal, which decides the optimization direction of RL."
+What types of rewards are used to train DeepSeek-R1-Zero?,We adopt a rule-based reward system that mainly consists of two types of rewards: accuracy rewards and format rewards.
+How does the accuracy reward model function?,"The accuracy reward model evaluates whether the response is correct. For example, in the case of math problems with deterministic results, the model is required to provide the final answer in a specified format (e.g., within a box), enabling reliable rule-based verification of correctness."
+What tool is used to assess correctness in programming tasks?,"For LeetCode problems, a compiler can be used to generate feedback based on predefined test cases."
+Why is a format reward model employed in training DeepSeek-R1-Zero?,"In addition to the accuracy reward model, we employ a format reward model that enforces the model to put its thinking process between '<think>' and '</think>' tags."
+What type of reward model is not applied in training DeepSeek-R1-Zero?,We do not apply the outcome or process neural reward model in developing DeepSeek-R1-Zero.
+Why is the neural reward model avoided in training DeepSeek-R1-Zero?,"We find that the neural reward model may suffer from reward hacking in the large-scale reinforcement learning process, and retraining the reward model needs additional training resources and it complicates the whole training pipeline."
+What is the purpose of the training template in DeepSeek-R1-Zero?,"To train DeepSeek-R1-Zero, we begin by designing a straightforward template that guides the base model to adhere to our specified instructions."
+How does the training template ensure structural consistency?,"This template requires DeepSeek-R1-Zero to first produce a reasoning process, followed by the final answer."
+What constraints are intentionally avoided in the training template?,"We intentionally limit our constraints to this structural format, avoiding any content-specific biases—such as mandating reflective reasoning or promoting particular problem-solving strategies."
+Why does the training template avoid content-specific biases?,To ensure that we can accurately observe the model's natural progression during the RL process.
+What benchmark is used to evaluate DeepSeek-R1-Zero’s performance?,Figure [2] depicts the performance trajectory of DeepSeek-R1-Zero on the AIME 2024 benchmark throughout the RL training process.
+What notable performance improvement is observed in DeepSeek-R1-Zero?,"The average pass@1 score on AIME 2024 shows a significant increase, jumping from an initial 15.6% to an impressive 71.0%."
+How does DeepSeek-R1-Zero's final performance compare to existing models?,It reaches performance levels comparable to OpenAI-o1-0912.
+What does the performance trajectory of DeepSeek-R1-Zero illustrate?,DeepSeek-R1-Zero demonstrates a steady and consistent enhancement in performance as the RL training advances.
+How does DeepSeek-R1-Zero perform on the AIME 2024 benchmark?,DeepSeek-R1-Zero achieves a pass@1 score of 71.0 on AIME 2024.
+Which model has the highest pass@1 score on AIME 2024?,"OpenAI-o1-0912 has the highest pass@1 score on AIME 2024, with a score of 74.4."
+What is the cons@64 score of DeepSeek-R1-Zero?,DeepSeek-R1-Zero has a cons@64 score of 86.7.
+Which model performs best on MATH-500?,DeepSeek-R1-Zero achieves the highest pass@1 score on MATH-500 with 95.9.
+How does OpenAI-o1-mini compare to DeepSeek-R1-Zero on MATH-500?,"OpenAI-o1-mini has a pass@1 score of 90.0 on MATH-500, while DeepSeek-R1-Zero achieves 95.9."
+Which model performs best on GPQA Diamond?,"OpenAI-o1-0912 performs best on GPQA Diamond, achieving a pass@1 score of 77.3."
+What pass@1 score does DeepSeek-R1-Zero achieve on GPQA Diamond?,DeepSeek-R1-Zero achieves a pass@1 score of 73.3 on GPQA Diamond.
+Which model has the highest pass@1 score on LiveCode Bench?,OpenAI-o1-0912 has the highest pass@1 score on LiveCode Bench with 63.4.
+How does DeepSeek-R1-Zero perform on LiveCode Bench?,DeepSeek-R1-Zero has a pass@1 score of 50.0 on LiveCode Bench.
+What is the rating of DeepSeek-R1-Zero on CodeForces?,DeepSeek-R1-Zero has a rating of 1444 on CodeForces.
+Which model has the highest CodeForces rating?,OpenAI-o1-0912 has the highest CodeForces rating of 1843.
+How does OpenAI-o1-mini compare to OpenAI-o1-0912 on CodeForces?,"OpenAI-o1-mini has a CodeForces rating of 1820, while OpenAI-o1-0912 has a higher rating of 1843."
+Which model has the lowest pass@1 score on LiveCode Bench?,"DeepSeek-R1-Zero has the lowest pass@1 score on LiveCode Bench, with a score of 50.0."
+How does OpenAI-o1-mini compare to OpenAI-o1-0912 on cons@64?,"OpenAI-o1-mini has a cons@64 score of 80.0, while OpenAI-o1-0912 has a higher score of 83.3."
+What is the pass@1 score of OpenAI-o1-mini on AIME 2024?,OpenAI-o1-mini has a pass@1 score of 63.6 on AIME 2024.
+How does DeepSeek-R1-Zero compare to OpenAI-o1-0912 on MATH-500?,"DeepSeek-R1-Zero outperforms OpenAI-o1-0912 on MATH-500, achieving a pass@1 score of 95.9 compared to 94.8."
+Which model has the lowest pass@1 score on GPQA Diamond?,"OpenAI-o1-mini has the lowest pass@1 score on GPQA Diamond, with a score of 60.0."
+What is the pass@1 score of OpenAI-o1-0912 on LiveCode Bench?,OpenAI-o1-0912 has a pass@1 score of 63.4 on LiveCode Bench.
+Which model achieves the highest cons@64 score?,DeepSeek-R1-Zero achieves the highest cons@64 score with 86.7.
+What makes DeepSeek-R1-Zero's training approach noteworthy?,DeepSeek-R1-Zero attains robust reasoning capabilities without the need for any supervised fine-tuning data.
+How does DeepSeek-R1-Zero's performance improve with majority voting?,"When majority voting is employed on the AIME benchmark, DeepSeek-R1-Zero's performance escalates from 71.0% to 86.7%, thereby exceeding the performance of OpenAI-o1-0912."
+Why is DeepSeek-R1-Zero’s ability to improve through majority voting significant?,"The ability of DeepSeek-R1-Zero to achieve such competitive performance, both with and without majority voting, highlights its strong foundational capabilities and its potential for further advancements in reasoning tasks."
+What is the self-evolution process of DeepSeek-R1-Zero?,The self-evolution process of DeepSeek-R1-Zero is a fascinating demonstration of how RL can drive a model to improve its reasoning capabilities autonomously.
+Why does the self-evolution process provide a clear view of the model's progression?,"By initiating RL directly from the base model, we can closely monitor the model's progression without the influence of the supervised fine-tuning stage."
+How does DeepSeek-R1-Zero improve over time?,The thinking time of DeepSeek-R1-Zero shows consistent improvement throughout the training process.
+What drives DeepSeek-R1-Zero's reasoning improvements during training?,This improvement is not the result of external adjustments but rather an intrinsic development within the model.
+How does DeepSeek-R1-Zero refine its reasoning processes?,DeepSeek-R1-Zero naturally acquires the ability to solve increasingly complex reasoning tasks by leveraging extended test-time computation.
+How does test-time computation contribute to DeepSeek-R1-Zero’s reasoning?,"This computation ranges from generating hundreds to thousands of reasoning tokens, allowing the model to explore and refine its thought processes in greater depth."
+What sophisticated behaviors emerge as DeepSeek-R1-Zero’s test-time computation increases?,Behaviors such as reflection—where the model revisits and reevaluates its previous steps—and the exploration of alternative approaches to problem-solving arise spontaneously.
+Are these sophisticated behaviors explicitly programmed into DeepSeek-R1-Zero?,These behaviors are not explicitly programmed but instead emerge as a result of the model's interaction with the reinforcement learning environment.
+How does the emergence of sophisticated behaviors benefit DeepSeek-R1-Zero?,"This spontaneous development significantly enhances DeepSeek-R1-Zero's reasoning capabilities, enabling it to tackle more challenging tasks with greater efficiency and accuracy."
+"What is the ""aha moment"" of DeepSeek-R1-Zero?","A particularly intriguing phenomenon observed during the training of DeepSeek-R1-Zero is the occurrence of an ""aha moment""."
+"When does the ""aha moment"" occur?","This moment, as illustrated in Table [3,](#page-8-2) occurs in an intermediate version of the model."
+"What does DeepSeek-R1-Zero learn during its ""aha moment""?","During this phase, DeepSeek-R1-Zero learns to allocate more thinking time to a problem by reevaluating its initial approach."
+"Why is the ""aha moment"" important?",This behavior is not only a testament to the model's growing reasoning abilities but also a captivating example of how reinforcement learning can lead to unexpected and sophisticated outcomes.
+"Who else experiences an ""aha moment"" besides the model?","This moment is not only an ""aha moment"" for the model but also for the researchers observing its behavior."
+"What does the ""aha moment"" reveal about reinforcement learning?","It underscores the power and beauty of reinforcement learning: rather than explicitly teaching the model on how to solve a problem, we simply provide it with the right incentives, and it autonomously develops advanced problem-solving strategies."
+"How does the ""aha moment"" contribute to AI research?","The ""aha moment"" serves as a powerful reminder of the potential of RL to unlock new levels of intelligence in artificial systems, paving the way for more autonomous and adaptive models in the future."
+Why does reinforcement learning play a crucial role in DeepSeek-R1-Zero's training?,Reinforcement learning enables DeepSeek-R1-Zero to develop advanced problem-solving strategies autonomously.
+What happens when DeepSeek-R1-Zero is not constrained by supervised fine-tuning?,"By initiating RL directly from the base model, we can closely monitor the model's progression without the influence of the supervised fine-tuning stage."
+How does DeepSeek-R1-Zero approach problem-solving differently over time?,DeepSeek-R1-Zero revisits and reevaluates its previous steps and explores alternative approaches to problem-solving.
+Why is DeepSeek-R1-Zero’s ability to improve reasoning autonomously significant?,"This spontaneous development significantly enhances DeepSeek-R1-Zero's reasoning capabilities, enabling it to tackle more challenging tasks with greater efficiency and accuracy."
+What role does test-time computation play in DeepSeek-R1-Zero's reasoning?,"Test-time computation ranges from generating hundreds to thousands of reasoning tokens, allowing the model to explore and refine its thought processes in greater depth."
+How does DeepSeek-R1-Zero outperform OpenAI-o1-0912?,"When majority voting is employed on the AIME benchmark, DeepSeek-R1-Zero's performance escalates from 71.0% to 86.7%, thereby exceeding the performance of OpenAI-o1-0912."
+What evidence supports DeepSeek-R1-Zero's strong reasoning foundation?,"The ability of DeepSeek-R1-Zero to achieve such competitive performance, both with and without majority voting, highlights its strong foundational capabilities and its potential for further advancements in reasoning tasks."
+How does reinforcement learning contribute to DeepSeek-R1-Zero’s unexpected behaviors?,"Reinforcement learning enables the spontaneous emergence of sophisticated behaviors, such as reflection and alternative approach exploration."
+What makes DeepSeek-R1-Zero’s approach to complex tasks unique?,DeepSeek-R1-Zero naturally acquires the ability to solve increasingly complex reasoning tasks by leveraging extended test-time computation.
+Why does DeepSeek-R1-Zero’s evolution matter for future AI research?,"The ""aha moment"" serves as a powerful reminder of the potential of RL to unlock new levels of intelligence in artificial systems, paving the way for more autonomous and adaptive models in the future."
+What is DeepSeek-R1-Zero's main strength?,DeepSeek-R1-Zero exhibits strong reasoning capabilities and autonomously develops unexpected and powerful reasoning behaviors.
+What are some of the challenges DeepSeek-R1-Zero faces?,DeepSeek-R1-Zero struggles with challenges like poor readability and language mixing.
+Why was DeepSeek-R1 developed?,"DeepSeek-R1 was developed to improve reasoning performance, accelerate convergence, and produce clear and coherent Chains of Thought (CoT)."
+How does DeepSeek-R1 aim to make reasoning more readable?,DeepSeek-R1 utilizes RL with human-friendly cold-start data to improve readability.
+What is the purpose of cold-start data in DeepSeek-R1?,Cold-start data prevents the early unstable cold start phase of RL training and helps fine-tune the model as the initial RL actor.
+How is cold-start data collected for DeepSeek-R1?,"Cold-start data is collected using few-shot prompting with long CoT examples, prompting models to generate detailed answers, gathering readable DeepSeek-R1-Zero outputs, and refining results through human post-processing."
+What advantages does cold-start data provide over DeepSeek-R1-Zero?,Cold-start data improves readability and helps filter out responses that are not reader-friendly.
+What formatting does DeepSeek-R1 use for readability?,"DeepSeek-R1 defines output formatting as |special_token|<reasoning_process>|special_token|<summary>, where the reasoning process is the CoT and the summary provides a final answer."
+How does the design of cold-start data impact model performance?,"By carefully designing cold-start data with human priors, DeepSeek-R1 demonstrates better performance than DeepSeek-R1-Zero."
+What iterative approach is used in DeepSeek-R1?,DeepSeek-R1 follows an iterative training process that enhances its reasoning capabilities over time.
+What are the key differences between DeepSeek-R1-Zero and DeepSeek-R1?,"DeepSeek-R1-Zero lacks readability and mixes languages, while DeepSeek-R1 improves reasoning clarity through cold-start data and better formatting."
+What type of model serves as the starting point for DeepSeek-R1 reinforcement learning?,DeepSeek-V3-Base is fine-tuned with cold-start data to serve as the initial RL actor.
+What methods were explored to generate cold-start data for DeepSeek-R1?,"Methods include few-shot prompting, direct prompting with reflection, collecting readable outputs from DeepSeek-R1-Zero, and human post-processing."
+What is the impact of readability improvements in DeepSeek-R1?,Readability improvements make it easier for users to understand responses and follow reasoning processes.
+Why is human annotation used in DeepSeek-R1 training?,"Human annotation helps refine and improve the quality of cold-start data, ensuring clarity and coherence."
+How does DeepSeek-R1 enhance reasoning in comparison to DeepSeek-R1-Zero?,"DeepSeek-R1 enhances reasoning through reinforcement learning with structured, high-quality cold-start data."
+What type of reasoning format is prioritized in DeepSeek-R1?,DeepSeek-R1 prioritizes clear and structured Chains of Thought (CoT) in its responses.
+What is one of the main goals of DeepSeek-R1?,One of the main goals is to train a user-friendly model that produces clear and coherent reasoning while maintaining strong general capabilities.
+"What does the term ""cold start"" refer to in DeepSeek-R1 training?",It refers to using a small amount of high-quality data to stabilize the initial RL training phase.
+How does DeepSeek-R1-Zero differ in response formatting from DeepSeek-R1?,"DeepSeek-R1-Zero responses may mix languages and lack markdown formatting, while DeepSeek-R1 uses structured output formats with clear reasoning and summaries."
+Why was a cold-start phase introduced in DeepSeek-R1?,The cold-start phase was introduced to prevent instability in early RL training and provide a foundation of high-quality reasoning examples.
+What is one observed benefit of using cold-start data in DeepSeek-R1?,It leads to better reasoning performance compared to DeepSeek-R1-Zero.
+How does DeepSeek-R1 balance reinforcement learning with human-friendly output?,"By incorporating structured cold-start data, it enhances reinforcement learning while ensuring readability and coherence."
+Why is DeepSeek-R1 an improvement over DeepSeek-R1-Zero?,"DeepSeek-R1 improves readability, reasoning clarity, and performance through structured reinforcement learning and better-formatted output."
+What research direction does DeepSeek-R1 explore?,"DeepSeek-R1 explores how reinforcement learning with structured, high-quality cold-start data can enhance reasoning and usability in AI models."
+What phase follows fine-tuning DeepSeek-V3-Base on cold start data?,"After fine-tuning DeepSeek-V3-Base on the cold start data, we apply the same large-scale reinforcement learning training process as employed in DeepSeek-R1-Zero."
+What is the main focus during reasoning-oriented reinforcement learning training?,"This phase focuses on enhancing the model's reasoning capabilities, particularly in reasoning-intensive tasks such as coding, mathematics, science, and logic reasoning, which involve well-defined problems with clear solutions."
+What issue is observed during the reasoning-oriented RL training?,"During the training process, we observe that CoT often exhibits language mixing, particularly when RL prompts involve multiple languages."
+How is the issue of language mixing mitigated in DeepSeek-R1?,"To mitigate the issue of language mixing, we introduce a language consistency reward during RL training, which is calculated as the proportion of target language words in the CoT."
+What was the result of ablation experiments on the language consistency reward?,"Although ablation experiments show that such alignment results in a slight degradation in the model's performance, this reward aligns with human preferences, making it more readable."
+How is the final reward calculated in reasoning-oriented RL training?,We combine the accuracy of reasoning tasks and the reward for language consistency by directly summing them to form the final reward.
+What happens after reasoning-oriented RL converges?,"When reasoning-oriented RL converges, we utilize the resulting checkpoint to collect SFT (Supervised Fine-Tuning) data for the subsequent round."
+What does the SFT data incorporate?,"Unlike the initial cold-start data, which primarily focuses on reasoning, this stage incorporates data from other domains to enhance the model's capabilities in writing, role-playing, and other general-purpose tasks."
+What method is used to curate reasoning data in SFT?,We curate reasoning prompts and generate reasoning trajectories by performing rejection sampling from the checkpoint from the above RL training.
+How is the reasoning dataset expanded in SFT?,"In this stage, we expand the dataset by incorporating additional data, some of which use a generative reward model by feeding the ground-truth and model predictions into DeepSeek-V3 for judgment."
+What type of data is filtered out in the SFT reasoning data collection process?,"We have filtered out chain-of-thought with mixed languages, long paragraphs, and code blocks."
+How is non-reasoning data handled in the SFT process?,"For non-reasoning data, such as writing, factual QA, self-cognition, and translation, we adopt the DeepSeek-V3 pipeline and reuse portions of the SFT dataset of DeepSeek-V3."
+"What does the SFT process do for simpler queries like ""hello""?","For simpler queries, such as ""hello,"" we do not provide a CoT in response."
+How many reasoning-related training samples were collected during SFT?,"In total, we collect about 600k reasoning related training samples."
+How many non-reasoning training samples were collected during SFT?,"For non-reasoning tasks, we collected a total of approximately 200k training samples that are unrelated to reasoning."
+What is the total number of training samples used in the SFT process?,We fine-tune DeepSeek-V3-Base for two epochs using the above curated dataset of about 800k samples.
+How many epochs is DeepSeek-V3-Base fine-tuned in SFT?,We fine-tune DeepSeek-V3-Base for two epochs using the above curated dataset.
+What domains does the SFT data enhance in DeepSeek-V3-Base?,"This stage incorporates data from other domains to enhance the model's capabilities in writing, role-playing, and other general-purpose tasks."
+How are multiple responses handled during reasoning data collection?,"For each prompt, we sample multiple responses and retain only the correct ones."
+What is the role of the generative reward model in reasoning data collection?,Some reasoning data uses a generative reward model by feeding the ground-truth and model predictions into DeepSeek-V3 for judgment.
+How does DeepSeek-R1 handle language consistency during reinforcement learning?,DeepSeek-R1 introduces a language consistency reward calculated as the proportion of target language words in the CoT to mitigate language mixing.
+What is the primary purpose of rejection sampling in SFT data collection?,Rejection sampling is used to curate reasoning prompts and generate reasoning trajectories from the checkpoint obtained in reasoning-oriented RL training.
+What type of tasks does reasoning-oriented RL aim to improve?,"Reasoning-oriented RL aims to improve reasoning capabilities in tasks like coding, mathematics, science, and logic reasoning."
+How does the language consistency reward benefit DeepSeek-R1?,"The language consistency reward aligns with human preferences, making the model's output more readable."
+What was the result of applying the language consistency reward?,It results in a slight degradation in model performance but makes the output more readable and aligned with human preferences.
+What is the secondary reinforcement learning stage focused on?,The secondary reinforcement learning stage is aimed at improving the model's helpfulness and harmlessness while simultaneously refining its reasoning capabilities.
+How does the secondary reinforcement learning stage improve helpfulness?,"For helpfulness, we focus exclusively on the final summary, ensuring that the assessment emphasizes the utility and relevance of the response to the user while minimizing interference with the underlying reasoning process."
+How is harmlessness evaluated during the reinforcement learning process?,"For harmlessness, we evaluate the entire response of the model, including both the reasoning process and the summary, to identify and mitigate any potential risks, biases, or harmful content that may arise during the generation process."
+What combination of signals and distributions is used during reinforcement learning?,We train the model using a combination of reward signals and diverse prompt distributions.
+What methodology is used for reasoning data during reinforcement learning?,"For reasoning data, we adhere to the methodology outlined in DeepSeek-R1-Zero, which utilizes rule-based rewards to guide the learning process in math, code, and logical reasoning domains."
+What is the role of reward models for general data?,"For general data, we resort to reward models to capture human preferences in complex and nuanced scenarios."
+How does reinforcement learning in DeepSeek-R1 align with human preferences?,The integration of reward signals and diverse data distributions enables us to train a model that excels in reasoning while prioritizing helpfulness and harmlessness.
+What is the purpose of the distillation process for smaller models?,"To equip more efficient smaller models with reasoning capabilities like DeepSeek-R1, we directly fine-tuned open-source models using the 800k samples curated with DeepSeek-R1."
+Which models were used for distillation?,"The base models we use here are Qwen2.5-Math-1.5B, Qwen2.5-Math-7B, Qwen2.5-14B, Qwen2.5-32B, Llama-3.1-8B, and Llama-3.3-70B-Instruct."
+What is the goal of the distillation process for small models?,"Our primary goal here is to demonstrate the effectiveness of the distillation technique, leaving the exploration of the RL stage to the broader research community."
+How does the distillation method impact reasoning capabilities?,Our findings indicate that this straightforward distillation method significantly enhances the reasoning abilities of smaller models.
+What is the limitation of the distillation method for smaller models?,"For distilled models, we apply only SFT and do not include an RL stage, even though incorporating RL could substantially boost model performance."
+Why is Llama-3.3 selected for distillation?,We select Llama-3.3 because its reasoning capability is slightly better than that of Llama-3.1.
+How does reinforcement learning affect the distillation of models?,"In the context of this study, reinforcement learning is not included in the distillation process, though it could significantly boost model performance."
+What does the distillation technique aim to showcase?,The primary goal of the distillation technique is to demonstrate its effectiveness in enhancing reasoning capabilities in smaller models.
+What is the goal of the secondary reinforcement learning stage?,The secondary reinforcement learning stage is aimed at improving the model's helpfulness and harmlessness while simultaneously refining its reasoning capabilities.
+How is helpfulness measured during the reinforcement learning stage?,"For helpfulness, we focus exclusively on the final summary, ensuring that the assessment emphasizes the utility and relevance of the response to the user while minimizing interference with the underlying reasoning process."
+How is harmlessness assessed in the reinforcement learning process?,"For harmlessness, we evaluate the entire response of the model, including both the reasoning process and the summary, to identify and mitigate any potential risks, biases, or harmful content that may arise during the generation process."
+What type of reward signals are used during reinforcement learning?,We train the model using a combination of reward signals and diverse prompt distributions.
+What does the distillation method aim to demonstrate?,"Our primary goal here is to demonstrate the effectiveness of the distillation technique, leaving the exploration of the RL stage to the broader research community."
+How is reasoning data handled during reinforcement learning?,"For reasoning data, we adhere to the methodology outlined in DeepSeek-R1-Zero, which utilizes rule-based rewards to guide the learning process in math, code, and logical reasoning domains."
+What is the role of reward models for general data during reinforcement learning?,"For general data, we resort to reward models to capture human preferences in complex and nuanced scenarios."
+How does reinforcement learning improve the model's reasoning capabilities?,The integration of reward signals and diverse data distributions enables us to train a model that excels in reasoning while prioritizing helpfulness and harmlessness.
+How do smaller models gain reasoning capabilities in the distillation process?,"To equip more efficient smaller models with reasoning capabilities like DeepSeek-R1, we directly fine-tuned open-source models using the 800k samples curated with DeepSeek-R1."
+What models were used for distillation?,"The base models we use here are Qwen2.5-Math-1.5B, Qwen2.5-Math-7B, Qwen2.5-14B, Qwen2.5-32B, Llama-3.1-8B, and Llama-3.3-70B-Instruct."
+What makes Llama-3.3 preferred over Llama-3.1 for distillation?,We select Llama-3.3 because its reasoning capability is slightly better than that of Llama-3.1.
+What is the limitation of the distillation process for smaller models?,"For distilled models, we apply only SFT and do not include an RL stage, even though incorporating RL could substantially boost model performance."
+Why was reinforcement learning not included in the distillation process?,"Our primary goal here is to demonstrate the effectiveness of the distillation technique, leaving the exploration of the RL stage to the broader research community."
+What does the distillation process enhance in smaller models?,Our findings indicate that this straightforward distillation method significantly enhances the reasoning abilities of smaller models.
+What is the focus of the reinforcement learning process for general data?,"For general data, we resort to reward models to capture human preferences in complex and nuanced scenarios."
+How does the reinforcement learning process align with human preferences?,The integration of reward signals and diverse data distributions enables us to train a model that excels in reasoning while prioritizing helpfulness and harmlessness.
+What is the overall impact of the secondary reinforcement learning stage?,It improves the model's helpfulness and harmlessness while simultaneously refining its reasoning capabilities.
+How many reasoning-related training samples were collected during supervised fine-tuning?,"In total, we collect about 600k reasoning related training samples."
+What is the purpose of the rejection sampling stage in supervised fine-tuning?,We curate reasoning prompts and generate reasoning trajectories by performing rejection sampling from the checkpoint from the above RL training.
+What is the total amount of non-reasoning data collected?,"In the end, we collected a total of approximately 200k training samples that are unrelated to reasoning."
+How many total training samples were collected for supervised fine-tuning?,We fine-tune DeepSeek-V3-Base for two epochs using the above curated dataset of about 800k samples.
+What architecture is used for DeepSeek-R1?,MoE
+How many activated parameters does DeepSeek-R1 have?,37B
+What is the total number of parameters in DeepSeek-R1?,671B
+What is the MMLU (Pass@1) score for DeepSeek-R1?,91.8
+What is the MMLU-Redux (EM) score for DeepSeek-R1?,92.9
+What is the MMLU-Pro (EM) score for DeepSeek-R1?,84.0
+What is the DROP (3-shot F1) score for DeepSeek-R1?,92.2
+What is the IF-Eval (Prompt Strict) score for DeepSeek-R1?,83.3
+What is the GPQA Diamond (Pass@1) score for DeepSeek-R1?,71.5
+What is the SimpleQA (Correct) score for DeepSeek-R1?,30.1
+What is the FRAMES (Acc.) score for DeepSeek-R1?,82.5
+What is the AlpacaEval2.0 (LC-winrate) score for DeepSeek-R1?,87.6
+What is the ArenaHard (GPT-4-1106) score for DeepSeek-R1?,92.3
+What is the LiveCodeBench (Pass@1-COT) score for DeepSeek-R1?,65.9
+What is the Codeforces (Percentile) score for DeepSeek-R1?,96.3
+What is the Codeforces (Rating) score for DeepSeek-R1?,2029
+What is the SWE Verified (Resolved) score for DeepSeek-R1?,49.2
+What is the Aider-Polyglot (Acc.) score for DeepSeek-R1?,53.3
+What is the AIME 2024 (Pass@1) score for DeepSeek-R1?,79.8
+What is the MATH-500 (Pass@1) score for DeepSeek-R1?,97.3
+What is the CNMO 2024 (Pass@1) score for DeepSeek-R1?,78.8
+What is the CLUEWSC (EM) score for DeepSeek-R1?,92.8
+What is the C-Eval (EM) score for DeepSeek-R1?,91.8
+What is the C-SimpleQA (Correct) score for DeepSeek-R1?,63.7
+How does DeepSeek-R1 perform on education-oriented knowledge benchmarks such as MMLU and MMLU-Pro?,DeepSeek-R1 demonstrates superior performance compared to DeepSeek-V3.
+What is the primary reason for DeepSeek-R1's improvement on STEM-related questions?,"This improvement is primarily attributed to enhanced accuracy in STEM-related questions, where significant gains are achieved through large-scale reinforcement learning."
+How does DeepSeek-R1 perform on the FRAMES benchmark?,"DeepSeek-R1 excels on FRAMES, a long-context-dependent QA task, showcasing its strong document analysis capabilities."
+How does DeepSeek-R1 perform on the SimpleQA benchmark?,"On the factual benchmark SimpleQA, DeepSeek-R1 outperforms DeepSeek-V3, demonstrating its capability in handling fact-based queries."
+How does DeepSeek-R1 compare to OpenAI-o1 on the SimpleQA benchmark?,A similar trend is observed where OpenAI-o1 surpasses GPT-4o on this benchmark.
+Why does DeepSeek-R1 perform worse than DeepSeek-V3 on the Chinese SimpleQA benchmark?,"DeepSeek-R1 performs worse than DeepSeek-V3 on the Chinese SimpleQA benchmark, primarily due to its tendency to refuse answering certain queries after safety RL."
+What is DeepSeek-R1's performance on IF-Eval?,"DeepSeek-R1 delivers impressive results on IF-Eval, a benchmark designed to assess a model's ability to follow format instructions."
+What contributes to DeepSeek-R1's improvement on IF-Eval?,These improvements can be linked to the inclusion of instruction-following data during the final stages of supervised fine-tuning (SFT) and RL training.
+How does DeepSeek-R1 perform on AlpacaEval2.0 and ArenaHard?,"Remarkable performance is observed on AlpacaEval2.0 and ArenaHard, indicating DeepSeek-R1's strengths in writing tasks and open-domain question answering."
+How does DeepSeek-R1 compare to DeepSeek-V3 on AlpacaEval2.0 and ArenaHard?,Its significant outperformance of DeepSeek-V3 underscores the generalization benefits of large-scale RL.
+What does the summary length generated by DeepSeek-R1 indicate?,"The summary lengths generated by DeepSeek-R1 are concise, with an average of 689 tokens on ArenaHard and 2,218 characters on AlpacaEval 2.0."
+What does DeepSeek-R1's summary length suggest about its performance?,"This indicates that DeepSeek-R1 avoids introducing length bias during GPT-based evaluations, further solidifying its robustness across multiple tasks."
+How does DeepSeek-R1 perform on math tasks?,"On math tasks, DeepSeek-R1 demonstrates performance on par with OpenAI-o1-1217, surpassing other models by a large margin."
+What is DeepSeek-R1's performance on coding algorithm tasks like LiveCodeBench and Codeforces?,"On coding algorithm tasks, such as LiveCodeBench and Codeforces, reasoning-focused models dominate these benchmarks."
+How does DeepSeek-R1 compare to OpenAI-o1-1217 on engineering-oriented coding tasks?,"On engineering-oriented coding tasks, OpenAI-o1-1217 outperforms DeepSeek-R1 on Aider but achieves comparable performance on SWE Verified."
+What is DeepSeek-R1-Distill-Qwen-1.5B's performance on AIME 2024?,DeepSeek-R1-Distill-Qwen-1.5B has a pass@1 score of 28.9 on AIME 2024.
+How does DeepSeek-R1-Distill-Qwen-7B perform on MATH-500?,DeepSeek-R1-Distill-Qwen-7B achieves a pass@1 score of 92.8 on MATH-500.
+What is the performance of DeepSeek-R1-Distill-Qwen-32B on GPQA Diamond?,DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 62.1 on GPQA Diamond.
+How does DeepSeek-R1-Distill-Llama-70B perform on CodeForces rating?,DeepSeek-R1-Distill-Llama-70B has a rating of 1633 on CodeForces.
+What is DeepSeek-R1-Distill-Qwen-14B's performance on LiveCodeBench?,DeepSeek-R1-Distill-Qwen-14B achieves a pass@1 score of 53.1 on LiveCodeBench.
+How does DeepSeek-R1-Distill-Llama-8B perform on AIME 2024?,DeepSeek-R1-Distill-Llama-8B has a pass@1 score of 50.4 on AIME 2024.
+What is the pass@1 score of DeepSeek-R1-Distill-Qwen-32B on AIME 2024?,DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 72.6 on AIME 2024.
+How does DeepSeek-R1-Distill-Qwen-1.5B perform on CodeForces?,DeepSeek-R1-Distill-Qwen-1.5B has a rating of 954 on CodeForces.
+What is DeepSeek-R1-Distill-Qwen-7B's pass@1 score on GPQA Diamond?,DeepSeek-R1-Distill-Qwen-7B has a pass@1 score of 49.1 on GPQA Diamond.
+How does DeepSeek-R1-Distill-Llama-70B perform on CodeForces?,DeepSeek-R1-Distill-Llama-70B has a rating of 1633 on CodeForces.
+What is the pass@1 score of DeepSeek-R1-Distill-Qwen-32B on LiveCodeBench?,DeepSeek-R1-Distill-Qwen-32B achieves a pass@1 score of 57.2 on LiveCodeBench.
+What is DeepSeek-R1-Distill-Qwen-14B's performance on CodeForces?,DeepSeek-R1-Distill-Qwen-14B has a rating of 1481 on CodeForces.
+How does DeepSeek-R1-Distill-Qwen-32B perform on MATH-500?,DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 94.3 on MATH-500.
+How does DeepSeek-R1-Distill-Llama-8B perform on CodeForces?,DeepSeek-R1-Distill-Llama-8B has a rating of 1205 on CodeForces.
+What is the pass@1 score of DeepSeek-R1-Distill-Qwen-1.5B on MATH-500?,DeepSeek-R1-Distill-Qwen-1.5B has a pass@1 score of 83.9 on MATH-500.
+What model is trained via large-scale reinforcement learning without distillation?,DeepSeek-R1-Zero-Qwen-32B is trained via large-scale reinforcement learning without distillation.
+How does DeepSeek-R1-Zero-Qwen-32B perform on AIME 2024?,DeepSeek-R1-Zero-Qwen-32B has a pass@1 score of 47.0 on AIME 2024.
+What is the performance of DeepSeek-R1-Zero-Qwen-32B on MATH-500?,DeepSeek-R1-Zero-Qwen-32B achieves a pass@1 score of 91.6 on MATH-500.
+How does DeepSeek-R1-Zero-Qwen-32B compare to QwQ-32B-Preview on GPQA Diamond?,"DeepSeek-R1-Zero-Qwen-32B has a pass@1 score of 55.0 on GPQA Diamond, while QwQ-32B-Preview has a pass@1 score of 54.5."
+What is the performance of DeepSeek-R1-Distill-Qwen-32B on LiveCodeBench?,DeepSeek-R1-Distill-Qwen-32B achieves a pass@1 score of 57.2 on LiveCodeBench.
+How does DeepSeek-R1-Zero-Qwen-32B perform on LiveCodeBench?,DeepSeek-R1-Zero-Qwen-32B has a pass@1 score of 40.2 on LiveCodeBench.
+What is the performance comparison between DeepSeek-R1-Zero-Qwen-32B and QwQ-32B-Preview on AIME 2024?,"DeepSeek-R1-Zero-Qwen-32B has a pass@1 score of 47.0 on AIME 2024, while QwQ-32B-Preview has a pass@1 score of 50.0."
+What is the pass@1 score of DeepSeek-R1-Distill-Qwen-32B on MATH-500?,DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 94.3 on MATH-500.
+How does DeepSeek-R1-Zero-Qwen-32B compare to DeepSeek-R1-Distill-Qwen-32B on MATH-500?,"DeepSeek-R1-Zero-Qwen-32B has a pass@1 score of 91.6, while DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 94.3 on MATH-500."
+What is the pass@1 score of DeepSeek-R1-Distill-Qwen-32B on GPQA Diamond?,DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 62.1 on GPQA Diamond.
+How does DeepSeek-R1-Distill-Qwen-32B compare to DeepSeek-R1-Zero-Qwen-32B on GPQA Diamond?,"DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 62.1, while DeepSeek-R1-Zero-Qwen-32B has a pass@1 score of 55.0 on GPQA Diamond."
+What is the pass@1 score of DeepSeek-R1-Zero-Qwen-32B on GPQA Diamond?,DeepSeek-R1-Zero-Qwen-32B has a pass@1 score of 55.0 on GPQA Diamond.
+What is the pass@1 score of QwQ-32B-Preview on MATH-500?,QwQ-32B-Preview has a pass@1 score of 90.6 on MATH-500.
+How does DeepSeek-R1-Distill-Qwen-32B perform compared to QwQ-32B-Preview on LiveCodeBench?,"DeepSeek-R1-Distill-Qwen-32B has a pass@1 score of 57.2, while QwQ-32B-Preview has a pass@1 score of 41.9 on LiveCodeBench."
+What is the performance comparison between DeepSeek-R1-Zero-Qwen-32B and DeepSeek-R1-Distill-Qwen-32B across all benchmarks?,DeepSeek-R1-Distill-Qwen-32B performs significantly better than DeepSeek-R1-Zero-Qwen-32B across all benchmarks.
+What conclusion can be drawn about distillation and large-scale reinforcement learning based on the performance comparison?,"First, distilling more powerful models into smaller ones yields excellent results, whereas smaller models relying on the large-scale RL mentioned in this paper require enormous computational power and may not even achieve the performance of distillation."
+What is the second conclusion drawn from the comparison between distillation and reinforcement learning?,"Second, while distillation strategies are both economical and effective, advancing beyond the boundaries of intelligence may still require more powerful base models and larger-scale reinforcement learning."
+What method was explored to guide the model toward better approaches for solving reasoning tasks?,Process Reward Model (PRM) was explored as a reasonable method to guide the model toward better approaches for solving reasoning tasks.
+What are the three main limitations of Process Reward Model (PRM)?,"First, it is challenging to explicitly define a fine-grain step in general reasoning. Second, determining whether the current intermediate step is correct is a challenging task. Third, once a model-based PRM is introduced, it inevitably leads to reward hacking, and retraining the reward model needs additional training resources, complicating the whole training pipeline."
+What is a potential issue with using automated annotation for Process Reward Model (PRM)?,"Automated annotation using models may not yield satisfactory results, while manual annotation is not conducive to scaling up."
+What problem does introducing a model-based PRM lead to?,"Introducing a model-based PRM leads to reward hacking, which complicates the training pipeline."
+What does PRM demonstrate good ability to do?,PRM demonstrates a good ability to rerank the top-N responses generated by the model or assist in guided search.
+What is the disadvantage of PRM compared to its advantages in large-scale reinforcement learning experiments?,Its advantages are limited compared to the additional computational overhead it introduces during the large-scale reinforcement learning process.
+What inspired the exploration of Monte Carlo Tree Search (MCTS)?,MCTS was inspired by AlphaGo and AlphaZero.
+What is the aim of using MCTS in enhancing test-time compute scalability?,The aim is to break answers into smaller parts to allow the model to explore the solution space systematically.
+How does MCTS facilitate the solution space exploration?,MCTS facilitates this by prompting the model to generate multiple tags that correspond to specific reasoning steps necessary for the search.
+How is the training process carried out in MCTS?,"For training, we first use collected prompts to find answers via MCTS guided by a pre-trained value model. Subsequently, we use the resulting question-answer pairs to train both the actor model and the value model, iteratively refining the process."
+What challenge does MCTS face in scaling up training?,"Unlike chess, where the search space is relatively well-defined, token generation presents an exponentially larger search space."
+What is the effect of setting a maximum extension limit for each node in MCTS?,Setting a maximum extension limit for each node can lead to the model getting stuck in local optima.
+What directly influences the quality of generation in MCTS?,The value model directly influences the quality of generation since it guides each step of the search process.
+What makes it difficult to train a fine-grained value model in MCTS?,"Training a fine-grained value model is inherently difficult, which makes it challenging for the model to iteratively improve."
+How did AlphaGo's core success rely on its value model?,AlphaGo's core success relied on training a value model to progressively enhance its performance.
+Why is it difficult to replicate the principle used by AlphaGo in DeepSeek-R1?,The principle proves difficult to replicate in our setup due to the complexities of token generation.
+How can MCTS improve performance during inference?,MCTS can improve performance during inference when paired with a pre-trained value model.
+What is a significant challenge of iteratively boosting model performance through self-search in MCTS?,Iteratively boosting model performance through self-search remains a significant challenge.
+"What method was used in DeepSeek-R1 to guide reasoning tasks, but ultimately faced limitations?",Process Reward Model (PRM) was used to guide reasoning tasks but faced limitations in its implementation.
+What is the trade-off when using PRM in large-scale reinforcement learning?,"While PRM demonstrates a good ability to rerank responses, its computational overhead limits its effectiveness in large-scale reinforcement learning."
+What issue arises from using MCTS in token generation?,The exponentially larger search space in token generation makes MCTS more challenging compared to structured spaces like chess.
+How does MCTS handle solution space exploration?,"MCTS breaks answers into smaller parts, prompting the model to generate tags corresponding to reasoning steps necessary for exploration."
+What happens when the value model in MCTS is not fine-tuned well?,"When the value model is not fine-tuned well, it becomes difficult to guide the search process effectively, leading to poor performance."
+What impact did the challenges with MCTS have on training?,"The challenges with MCTS led to difficulties in iteratively refining the model, affecting the training process."
+What was the focus of the early failures in developing DeepSeek-R1?,The early failures in developing DeepSeek-R1 focused on finding effective methods to guide reasoning tasks through approaches like PRM and MCTS.
+How did distillation impact the performance of smaller models?,"Distillation of more powerful models into smaller ones led to excellent results, outperforming large-scale RL-based models."
+What strategy is considered both economical and effective in model development?,Distillation strategies are considered both economical and effective in model development.
+What challenges did the research team face when using MCTS for reasoning tasks?,The challenges included the large search space and difficulty in training a fine-grained value model to guide the search effectively.
+What are the advantages of using distillation over large-scale RL training?,Distillation offers significant performance improvements while being less computationally expensive compared to large-scale RL training.
+What is the performance comparison between DeepSeek-R1-Zero and DeepSeek-R1?,"DeepSeek-R1-Zero represents a pure RL approach without relying on cold-start data, achieving strong performance across various tasks. DeepSeek-R1 is more powerful, leveraging cold-start data alongside iterative RL fine-tuning."
+How does DeepSeek-R1 compare to OpenAI-o1-1217?,DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on a range of tasks.
+What role does distillation play in improving reasoning capabilities in DeepSeek-R1?,"Distillation enhances reasoning capability by using DeepSeek-R1 as the teacher model to generate 800K training samples, fine-tuning several small dense models."
+Which model outperforms GPT-4o and Claude-3.5-Sonnet in math benchmarks?,DeepSeek-R1-Distill-Qwen-1.5B outperforms GPT-4o and Claude-3.5-Sonnet on math benchmarks with 28.9% on AIME and 83.9% on MATH.
+How do other dense models compare to instruction-tuned models?,Other dense models significantly outperform other instruction-tuned models based on the same underlying checkpoints.
+What is one limitation of DeepSeek-R1 in terms of general capabilities?,"Currently, the capabilities of DeepSeek-R1 fall short of DeepSeek-V3 in tasks such as function calling, multi-turn, complex role-playing, and JSON output."
+What approach will be explored to enhance tasks in areas like function calling and multi-turn?,"Moving forward, we plan to explore how long CoT can be leveraged to enhance tasks in these fields."
+What issue does DeepSeek-R1 face with language mixing?,"DeepSeek-R1 is optimized for Chinese and English, which may result in language mixing issues when handling queries in other languages."
+What happens when DeepSeek-R1 handles queries in languages other than English or Chinese?,"DeepSeek-R1 might use English for reasoning and responses, even if the query is in a language other than English or Chinese."
+How is DeepSeek-R1 affected by prompting techniques?,"DeepSeek-R1 is sensitive to prompts, and few-shot prompting consistently degrades its performance."
+What prompting method is recommended for optimal results with DeepSeek-R1?,It is recommended to directly describe the problem and specify the output format using a zero-shot setting for optimal results.
+Why has large-scale RL not been applied extensively in software engineering tasks?,"Due to the long evaluation times, which impact the efficiency of the RL process, large-scale RL has not been applied extensively in software engineering tasks."
+How has DeepSeek-R1 performed on software engineering benchmarks?,DeepSeek-R1 has not demonstrated a huge improvement over DeepSeek-V3 on software engineering benchmarks.
+What future improvements are planned to address the efficiency of large-scale RL in software engineering tasks?,Future versions will address this by implementing rejection sampling on software engineering data or incorporating asynchronous evaluations during the RL process to improve efficiency.
+What is the main goal of the future research directions for DeepSeek-R1?,"The future research directions for DeepSeek-R1 focus on improving general capabilities, addressing language mixing issues, optimizing prompting techniques, and enhancing performance in software engineering tasks."
+Who are the core contributors to the research paper?,"Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, Xiaokang Zhang, Xingkai Yu, Yu Wu, Z.F. Wu, Zhibin Gou, Zhihong Shao, Zhuoshu Li, Ziyi Gao."
+Which contributors are marked with an asterisk (*)?,"Guangbo Hao, Kaichao You, Fuli Luo, Wenjun Gao, Yiliang Xiong, Yiyuan Liu, Zhen Zhang, Zijun Liu."
+"Who are some of the contributors with a first name starting with ""J""?","Jianzhong Guo, Jiashi Li, Jingchang Chen, Jingyang Yuan, Jinhao Tu, Junjie Qiu, Junlong Li, J.L. Cai, Jiaqi Ni, Jian Liang Jin Chen."
+"Who are some of the contributors with a first name starting with ""Y""?","Y.Y. Wei, Yang Zhang, Yanhong Xu, Yao Li, Yao Zhao, Yaofeng Sun, Yaohui Wang, Yi Yu, Yichao Zhang, Yifan Shi, Yiliang Xiong, Ying He, Yishi Piao, Yisong Wang, Yixuan Tan."
+"Which contributors are listed under the name ""Shengfeng Ye""?","Shengfeng Ye appears in the ""Contributors"" section, but there is no additional specific question about this individual."
+"Who contributed to the research with the name ""Zihui Gu""?",Zihui Gu is listed as one of the contributors to the research paper.
+What is the organization of the authors' names in the contributions section?,"Within each role, authors are listed alphabetically by the first name."
+"Who are some of the contributors with a first name starting with ""W""?","Wangding Zeng, Wen Liu, Wenfeng Liang, Wenjun Gao, Wenqin Yu, Wentao Zhang, W.L. Xiao, Wei An."
+"Which contributors have the name ""Zhen Zhang""?",Zhen Zhang is listed as one of the contributors to the research paper.
+"Who are some of the contributors with a first name starting with ""L""?","Liyue Zhang, Lei Xu, Leyi Xia, Lecong Zhang, Liang Zhao, Litong Wang, Lihua Wang."
+"Who contributed to the research with the name ""Yuxuan Liu""?",Yuxuan Liu is listed as one of the contributors to the research paper.
+Who is marked with an asterisk (*) indicating that they have departed from the team?,"Guangbo Hao, Kaichao You, Fuli Luo, Wenjun Gao, Yiliang Xiong, Yiyuan Liu, Zhen Zhang, Zijun Liu."
+"Which contributors are listed with a first name starting with ""F""?","Fuli Luo, Fucong Dai, Fangyun Lin, Fu Hao."
+"Who are the contributors listed with first names starting with ""X""?","Xiaokang Zhang, Xingkai Yu, Xiaodong Liu, Xiaohan Wang, Xiaokang Chen, Xiaotao Nie, Xin Cheng, Xin Liu, Xingchao Liu, Xinyu Yang."
